@@ -10,7 +10,9 @@
 Добавлять отзывы, комментарии и ставить оценки могут только аутентифицированные пользователи.
 ```
 ```
-Для запуска проекта необходимо выполнить 'docker-compose up -d --build' из директории /infra,
+Для запуска проекта необходимо cкопировать файл с настройками окружения и заменить секреты на актуальные
+cat infra/.env.example > infra/.env.
+Затем выполнить 'docker-compose up -d --build' из директории /infra,
 после запуска контейнеров выполнить по очереди:
 'docker-compose exec web python manage.py migrate'
 'docker-compose exec web python manage.py createsuperuser'
@@ -18,7 +20,7 @@
 Теперь проект доступен по адресу  'http://localhost/'
 ```
 ```
-Для наполнения БД тестовыми данными выполнить 'docker-compose exec web python manage.py load_data'
+Для наполнения БД данными выполнить 'docker-compose exec web python manage.py loaddata fixtures.json'
 ```
 ```
 Полная документация к API /redoc
